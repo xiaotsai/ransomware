@@ -31,10 +31,10 @@ const version = "1.7.5"
 var files []string
 
 func readfile(filename string) string {
-	file, err := os.ReadFile(filename)
-	if err != nil {
-		return ""
-	}
+	file, _ := os.ReadFile(filename)
+	//if err != nil {
+	//	return ""
+	//}
 
 	return string(file)
 }
